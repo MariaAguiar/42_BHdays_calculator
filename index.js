@@ -63,6 +63,14 @@ if (target && target !== row) {
         } else {
         target.before(row);
         }
+        const num = document.querySelectorAll(".content");
+        for (var i = 0; i < num.length; i++)
+        {
+            if (i > 0)
+                num[i].children[1].children[0].readOnly = 'true';
+            else
+                num[i].children[1].children[0].removeAttribute('readOnly');
+        }
     }
 }
 
