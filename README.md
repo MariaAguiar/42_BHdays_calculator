@@ -1,3 +1,6 @@
+42 evaluators calculator remade as a static website
+
+
 References:
 
 
