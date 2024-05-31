@@ -130,13 +130,11 @@ document.getElementById('calculator').addEventListener('click', function() {
         let project = rows[i].children[2].children[0].value;
         let grade = rows[i].children[3].children[0].value;
         let bonus = rows[i].children[4].children[0].checked;
+        let bonusXP = (bonus == true) ? 1.042 : 1;
         let midLevel = levelXP.get(Math.ceil(startLevel)) - levelXP.get(Math.floor(startLevel));
         let userXP = levelXP.get(Math.floor(startLevel)) + midLevel
             * (parseFloat(startLevel - Math.floor(startLevel)).toFixed(2));
-        console.log(userXP);
-        let bonusXP = (bonus == true) ? 1.042 : 1;
         let newXP = userXP + bonusXP*map.get(project)*(parseInt(grade) / 100);
-        console.log(newXP);
         let levelForXP, j;
         for (j = 0; j < levelXP.size; j++) {
             if (levelXP.get(j) > newXP) {
@@ -144,8 +142,8 @@ document.getElementById('calculator').addEventListener('click', function() {
                 break;
             }
         }
-        if (midLevel == 0)
-            midLevel = levelXP.get(j);
+        if (midLevel != 0 || startLevel == 0)
+            midLevel = levelXP.get(j) - levelXP.get(j - 1);
         let newLevel = (levelForXP + (newXP - levelXP.get(levelForXP))/ midLevel).toFixed(2);
         let BHdays = parseInt((((Math.min(newXP, 78880)/49980)**0.45)-((userXP/49980)**0.45))*483);
         rows[i].children[5].children[0].value = BHdays;
