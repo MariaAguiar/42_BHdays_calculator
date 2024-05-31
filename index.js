@@ -142,8 +142,7 @@ document.getElementById('calculator').addEventListener('click', function() {
                 break;
             }
         }
-        if (midLevel != 0 || startLevel == 0)
-            midLevel = levelXP.get(j) - levelXP.get(j - 1);
+        midLevel = levelXP.get(j) - levelXP.get(j - 1);
         let newLevel = (levelForXP + (newXP - levelXP.get(levelForXP))/ midLevel).toFixed(2);
         let BHdays = parseInt((((Math.min(newXP, 78880)/49980)**0.45)-((userXP/49980)**0.45))*483);
         rows[i].children[5].children[0].value = BHdays;
