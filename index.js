@@ -30,6 +30,8 @@ levelXP.set(7, 63559);
 levelXP.set(8, 74340);
 levelXP.set(9, 85483);
 levelXP.set(10, 95000);
+levelXP.set(11, 105630);
+levelXP.set(12, 124446);
 
 
 // Display projects from the map
@@ -127,6 +129,8 @@ document.getElementById('calculator').addEventListener('click', function() {
         if (i != 0)
             rows[i].children[1].children[0].value = rows[i - 1].children[6].children[0].value;
         let startLevel = parseFloat(rows[i].children[1].children[0].value).toFixed(2);
+        if (startLevel > 8.41)
+            break ;
         let project = rows[i].children[2].children[0].value;
         let grade = rows[i].children[3].children[0].value;
         let bonus = rows[i].children[4].children[0].checked;
@@ -144,8 +148,10 @@ document.getElementById('calculator').addEventListener('click', function() {
         }
         midLevel = levelXP.get(j) - levelXP.get(j - 1);
         let newLevel = (levelForXP + (newXP - levelXP.get(levelForXP))/ midLevel).toFixed(2);
+        rows[i].children[6].children[0].value = newLevel;
+        if (newLevel > 8.41 && startLevel <= 8.41)
+            newXP = (levelXP.get(9) + levelXP.get(9) - levelXP.get(8)).toFixed(2);
         let BHdays = parseInt((((Math.min(newXP, 78880)/49980)**0.45)-((userXP/49980)**0.45))*483);
         rows[i].children[5].children[0].value = BHdays;
-        rows[i].children[6].children[0].value = newLevel;
     }
 });
