@@ -46,11 +46,22 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+function added1stInput() {
+    let field = document.getElementById("1stgrade").value = 100;
+}
+
+function addedInput() {
+    let field = this.parentNode.parentNode.children[3].children[0];
+    field.value = 100;
+}
+
 // Allow dragging of rows
 var row;
+let save = 0;
 function dragstart(event) {
     row = event.target;
-  }
+    save = document.querySelectorAll(".content")[0].children[1].children[0].value;
+}
 
 function dragover(event) {
 event.preventDefault();
@@ -71,9 +82,13 @@ if (target && target !== row) {
             if (i > 0)
                 num[i].children[1].children[0].readOnly = 'true';
             else
+            {
+                num[i].children[1].children[0].value = save;
                 num[i].children[1].children[0].removeAttribute('readOnly');
+            }
         }
     }
+    document.getElementById('calculator').click();
 }
 
 
@@ -108,6 +123,7 @@ document.getElementById('addRow').addEventListener('click', function() {
         {
             input.setAttribute('list', "projects");
             input.classList.add("projects-field");
+            input.addEventListener('input', addedInput);
         }
         else if (i != 4)
             input.type = 'text';

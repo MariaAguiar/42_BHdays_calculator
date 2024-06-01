@@ -24,8 +24,8 @@
                     <tr class="content" draggable='true' ondragstart='dragstart(event)' ondragover='dragover(event)'>
                         <td><img draggable='false' src="dragIcon.png" alt="drag icon"></td>
                         <td><input type="text" name="col1[]" value="0"></td>
-                        <td><input class="projects-field" list="projects" type="text" name="col2[]"></td>
-                        <td><input type="text" name="col3[]"></td>
+                        <td><input class="projects-field" oninput='added1stInput()' list="projects" type="text" name="col2[]"></td>
+                        <td><input id="1stgrade" type="text" name="col3[]"></td>
                         <td><input type="checkbox" name="col4[]"></td>
                         <td><input type="text" readonly name="col5[]"></td>
                         <td><input type="text" readonly name="col6[]"></td>
