@@ -1,43 +1,47 @@
 <!doctype html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-        <link href="index.css" rel="stylesheet">
-        <title>42 Evaluator's Calculator Remade</title>
-    </head>
-    <body>
-        <main>
-            <table>
-                <thead>
-                    <tr>
-                        <th>*</th>
-                        <th>Cursus Level</th>
-                        <th>Project Name</th>
-                        <th>Final Grade</th>
-                        <th>Coalition Bonus</th>
-                        <th>Earned BH Days</th>
-                        <th>New Level</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="content" draggable='true' ondragstart='dragstart(event)' ondragover='dragover(event)'>
-                        <td><img draggable='false' src="dragIcon.png" alt="drag icon"></td>
-                        <td><input type="text" name="col1[]" value="0"></td>
-                        <td><input class="projects-field" oninput='added1stInput()' list="projects" type="text" name="col2[]"></td>
-                        <td><input id="1stgrade" type="text" name="col3[]"></td>
-                        <td><input type="checkbox" name="col4[]"></td>
-                        <td><input type="text" readonly name="col5[]"></td>
-                        <td><input type="text" readonly name="col6[]"></td>
-                    </tr>
-                </tbody>
-            </table>
-            <nav>
-                <button id="addRow">Add Row</button>
-                <button id="calculator">Calc</button>
-            </nav>
-        </main>
-        <datalist id="projects"></datalist>
-        <script src="index.js" type="application/javascript"></script>
-    </body>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <link href="index.css" rel="stylesheet">
+    <title>42 Evaluator's Calculator Remade</title>
+</head>
+
+<body>
+    <main>
+        <table>
+            <thead>
+                <tr>
+                    <th>*</th>
+                    <th>Cursus Level</th>
+                    <th>Project Name</th>
+                    <th>Final Grade</th>
+                    <th>Coalition Bonus</th>
+                    <th>Earned BH Days</th>
+                    <th>New Level</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="content" draggable='true' ondragstart='dragstart(event)' ondragover='dragover(event)'>
+                    <td><img draggable='false' src="dragIcon.png" alt="drag icon"></td>
+                    <td><input type="text" name="col1[]" value="0"></td>
+                    <td><input class="projects-field" oninput='added1stInput()' list="projects" type="text"
+                            name="col2[]"></td>
+                    <td><input id="1stgrade" type="text" maxlength="3" name="col3[]"></td>
+                    <td><input type="checkbox" name="col4[]"></td>
+                    <td><input type="text" readonly name="col5[]"></td>
+                    <td><input type="text" readonly name="col6[]"></td>
+                </tr>
+            </tbody>
+        </table>
+        <nav>
+            <button id="addRow">Add Row</button>
+            <button id="calculator">Calc</button>
+        </nav>
+    </main>
+    <datalist id="projects"></datalist>
+    <script src="index.js" type="application/javascript"></script>
+</body>
+
 </html>

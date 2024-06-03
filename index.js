@@ -133,6 +133,7 @@ document.getElementById('addRow').addEventListener('click', function() {
         newCell.appendChild(input);
         newRow.appendChild(newCell);
     }
+    document.getElementById('calculator').click();
     tableBody.appendChild(newRow);
 });
 
@@ -140,7 +141,7 @@ document.getElementById('addRow').addEventListener('click', function() {
 // 42 Evaluator's calculator logic
 document.getElementById('calculator').addEventListener('click', function() {
     const rows = document.querySelectorAll(".content");
-    for (var i = 0; i < rows.length; i++)
+    for (let i = 0; i < rows.length; i++)
     {
         if (i != 0)
             rows[i].children[1].children[0].value = rows[i - 1].children[6].children[0].value;
@@ -149,6 +150,8 @@ document.getElementById('calculator').addEventListener('click', function() {
             break ;
         let project = rows[i].children[2].children[0].value;
         let grade = rows[i].children[3].children[0].value;
+        if (project == "" || grade == "")
+            continue ;
         let bonus = rows[i].children[4].children[0].checked;
         let bonusXP = (bonus == true) ? 1.042 : 1;
         let midLevel = levelXP.get(Math.ceil(startLevel)) - levelXP.get(Math.floor(startLevel));
